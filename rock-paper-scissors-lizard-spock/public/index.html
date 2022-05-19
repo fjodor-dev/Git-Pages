@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <script src="../script/jquery-3.6.0.min.js"></script>
+  <script src="../script/script.js"></script>
+  <script>
+$('document').ready(()=>{
+  
+
+  const rulesContainer = $('.RulesContainer')
+  const rulesPage = $('.RulesPage')
+  const battleResult = $('.BattleResult')
+  const chooseOptions = $('.ChooseOptions')
+  const resultPlayerShadow = $(".PlayerResult .ShadowResult")
+  const resultPCShadow = $(".PCResult .ShadowResult")
+  const resultPlayerCircle = $(".PlayerResult div .Circle")
+  const resultPCCircle = $(".PCResult div .Circle")
+  const scoreCounter = $("header .ScoreCounter h2")
+  let score = 0
+  let numOfOptions = 5
+  let idIconPlayer
+  let idIconPC
+
+
+
+  chooseOptions.children().children(".Circle.Icon").on('click', function () {
+    
+    idIconPlayer = parseInt($(this).attr("id"))
+    idIconPC = Math.floor((Math.random() * numOfOptions) + 1)
+    
+    classForPCResult = ""
+    switch(idIconPC){
+      case 1: classForPCResult = "Siccors"; break
+      case 2: classForPCResult = "Paper"; break
+      case 3: classForPCResult = "Rock"; break
+      case 4: classForPCResult = "Lizard"; break
+      case 5: classForPCResult = "Spock"; break
+    }
+    resultPlayerCircle.addClass("Icon " + $(this).attr("class").split(' ').pop() + "")
+    resultPCCircle.addClass("Icon " + classForPCResult)
+ 
+    if (idIconPlayer == idIconPC) {
+      console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ", Tie")
+    }
+    else if (
+      idIconPlayer+1 == idIconPC||
+      idIconPlayer == numOfOptions && idIconPC == 1||
+      idIconPlayer>= Math.ceil(numOfOptions/2) && idIconPlayer-2 == idIconPC||
+      idIconPlayer < Math.ceil(numOfOptions/2) && idIconPlayer+3 == idIconPC
+    ){
+      console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ",you win pc lose")
+      resultPlayerShadow.addClass("ShadowPulse")
+      scoreCounter.text("" + ++score)
+
+    }
+    else{
+      console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ",pc win you lose")
+      resultPCShadow.addClass("ShadowPulse")
+      scoreCounter.text("" + --score)
+    }
+
+    chooseOptions.hide()
+    battleResult.css("display","flex")
+
+  })
+
+  $('.RulesButton').on('click', function () {
+    rulesContainer.show().animate({opacity: '1'},500)
+    rulesPage.animate({ top: "-=1000",}, 200);
+  })
+
+  rulesPage.children('span').on('click', function () { 
+    rulesPage.animate({ top: "+=1000px",}, 200);
+    rulesContainer.animate({opacity: '0.0'},500,()=>{rulesContainer.hide()})
+  })
+
+})
+
+
+  </script>
+</head>
+<body>
+  <div class="RulesContainer">
+    <div class="RulesPage">
+      <h1>rules</h1> 
+      <div class="RuleImage"></div>
+      <span>X</span>
+    </div>
+  </div>
+ 
+  <div class="Container">
+    <header class="RoundedBorder">
+      <ul>
+        <li>rock</li>
+        <li>Paper</li>
+        <li>sciccors</li>
+        <li>lizard</li>
+        <li>spock</li>
+      </ul>
+      <div class="ScoreCounter ">
+        <p>score</p>
+        <h2>0</h2>
+      </div>
+    </header>
+
+    <section class="ChooseOptions">
+      <span class="Point1">
+        <div class="Circle Icon Spock" id="5"></div>
+      </span>
+      <span class="Point2">
+        <div class="Circle Icon Lizard" id="4"></div>
+      </span>
+      <span class="Point3">
+        <div class="Circle  Icon  Siccors" id="1"></div>
+      </span>
+      <span class="Point4">
+        <div class="Circle Icon Rock" id="3"></div>
+      </span>
+      <span class="Point5">
+        <div class="Circle Icon Paper" id="2"></div>
+      </span>
+    </section>
+
+    <section class="BattleResult">
+      <div class="Result PlayerResult">
+        <div class="ShadowResult">
+          <div class="Circle"></div>
+        </div>
+        <p>you picked</p>
+      </div>
+      <div class="Result PCResult">
+        <div class="ShadowResult">
+          <div class="Circle"></div>
+        </div>
+        <p>the house picked</p>
+      </div>
+    </section>
+
+    <div class="RulesButton RoundedBorder">
+      Rules
+    </div>
+    
+  </div>
+
+  
+    
+
+
+
+
+
+  
+  
+</body>
+</html>
+<!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
