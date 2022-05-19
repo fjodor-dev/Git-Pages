@@ -1,0 +1,249 @@
+/* costem colors */
+:root{
+    --text-color-dark: #28283D;
+    --text-color-light: #FAFAFA;
+    --background-color: #FAFAFA;
+    --text-color-grey: #979797;
+    --dark-blue-color: #4d96a9;
+    --light-blue-color: #8FE3F9;
+    --dark-purple-color: #855FB1;
+    --light-purple-color: #D9B8FF;
+}
+
+/* All element */
+*{
+    margin: 0%;
+    padding: 0%;
+    color: #28283D;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* body */
+body{
+    background-color: var(--background-color);
+}
+
+/* font */
+
+h1, p, h2, h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+p{  
+    color: var(--text-color-grey);
+    font-weight: 600;
+    font-size: 1.2em;
+}
+h1{
+    font-size: 3em;
+}
+
+h2{
+    font-size: 2.2em;
+}
+h3{
+    text-transform: uppercase;
+    margin-top: 1.2em;
+    font-size: 1.2em;
+    color: var(--dark-blue-color);
+}
+header{
+    width: 100%;
+    max-width: 100%;
+    min-height: 40px;
+    height: 8vh;
+    max-height: 100px;
+    background-image: url(assets/logo.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Hero */
+.Hero1, .Hero2{
+    background-position: center;
+    background-size: auto;
+    width: 50%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.Hero1 img, .Hero2 img{
+    width: 105%;
+    min-height: 100px;
+}
+.Hero1{
+    float: left;
+}
+.Hero2{
+    float: right;
+}
+.Hero1 img{
+    margin-left: -15%;
+}
+.Hero2 img{
+    margin-right: -15%;
+}
+
+/* button */
+button{
+    background-color:var(--dark-blue-color);
+    height: 50px;
+    padding: 0 40px;
+    border-radius: 50px;
+    border: none;
+    text-align: left;
+    margin: 10px;
+    font-weight: 700;
+    color: var(--text-color-light);
+}
+
+button span{
+    color: #fafafa80;
+    color: var();
+}
+button:hover{
+    background-color: var(--light-blue-color);
+}
+
+.PurpleButton{
+    background-color: var(--dark-purple-color);
+}
+.PurpleButton:hover{
+    background-color: var(--light-purple-color);
+}
+
+/* section */
+section{
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 85%;
+}
+
+.imagesDisplay {
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 80px;
+}
+.imagesDisplay img{
+    max-width: 48%;
+    margin-bottom: 4%;
+    border-radius: 8%;
+}
+
+/* Clip between sections */
+.Clip, .Circle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -12px;
+}
+.Clip .Line{
+    height: 60px;
+    background-color: var(--text-color-grey);
+    width: 1px;
+}
+.Clip .Circle{
+    height: 48px;
+    width: 48px;
+    background-color: var(--background-color);
+    border: var(--text-color-grey) solid 1px;
+    border-radius: 50%;
+    font-weight: 800;
+    color: var(--text-color-grey);
+}
+
+/* footer */
+.FooterImage{
+    background-image: url(assets/mobile/image-footer.jpg);
+    background-position: center;
+    background-size: cover;
+}
+footer{
+    padding-top: 8vh;
+    padding-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(77, 150, 169, 0.8);
+    width: 100%;
+    align-items: center;
+}
+footer *{
+    max-width: 80vw;
+}
+footer p{
+    color: var(--text-color-light);
+    font-size: 1.2em;
+}
+footer h1{
+    color: var(--text-color-light);
+    font-size: 2.2em;
+}
+
+/* mediaQeury */
+@media only screen and (min-width: 600px) {
+    
+    .imagesDisplay img{
+        width: 24%;
+        margin-bottom: 0%;
+    }
+    h1, h2{
+        max-width: 55%;
+    }
+    .Greeting{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .Greeting p{
+        width: 100%;
+        padding-inline: 10%;
+        
+    }
+}
+/* mediaQeury */
+@media only screen and (min-width: 1080px) {
+    
+    body{
+        max-width: 2000px;
+        margin-inline: auto;
+    }
+    .Greeting{
+        clear: none;
+    }
+    .Hero1, .Hero2{
+        width: 25%;
+    }
+    section{
+        max-width: 50%;
+        clear: none;
+    }
+    .imagesDisplay{
+       width: 76%;
+    }
+    .FooterImage{
+        background-image: url(assets/desktop/image-footer.jpg);
+    }
+    footer{
+        width: 76%;
+        padding: 8vh;
+        padding-inline: 12%;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    footer *{
+        margin: 0;
+        max-width: 33%;
+        text-align: left;
+    }
+
+}
