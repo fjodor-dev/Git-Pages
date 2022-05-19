@@ -168,12 +168,12 @@ li{
 }
 .Paper{
     border-color: var(--PaperGradient);
-    background-image: url(../images/icon-Paper.svg);
+    background-image: url(../images/icon-paper.svg);
     box-shadow: var(--ShadowSetting) var(--PaperShadow),var(--standardShadow);
 }
 .Rock{
     border-color: var(--RockGradient);
-    background-image: url(../images/icon-Rock.svg);
+    background-image: url(../images/icon-rock.svg);
     box-shadow: var(--ShadowSetting) var(--RockShadow),var(--standardShadow);
 }
 .Lizard{
