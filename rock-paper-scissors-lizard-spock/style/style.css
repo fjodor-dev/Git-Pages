@@ -222,10 +222,8 @@ li{
 
 .BattleResult{
     
-    /* margin: auto; */
-    /* flex-grow: 2; */
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
 
     min-height: 55vh;
     
@@ -234,12 +232,10 @@ li{
     text-align: center;
 
     display: flex;
-    /* flex-wrap: wrap; */
-    
+    flex-wrap: wrap;
+    justify-content: space-between;
     
     display: none;
-    justify-content: space-between;
-
 }
 
 .BattleResult .Result{
@@ -271,6 +267,34 @@ li{
     margin: 0;
     border-width: 4vw;
 }
+.ResultMessage{
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: flex-end;
+    height: min-content;
+}
+.ResultMessage h1{
+    font-size: 3.6em;
+    margin-inline: 10px;
+    margin-bottom: 10px;
+}
+.ResultMessage .PlayAgainButton{
+    width: calc(100%);
+    font-size: 1.4em;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em 0;
+    text-align: center;
+    color: var(--DarkText);
+}
+.ResultMessage .PlayAgainButton:hover{
+    color: red;
+}
+
+
 
 .ShadowResult{
     
@@ -436,16 +460,30 @@ li{
 
 @media only screen and (min-width: 600px) {
 
+    .BattleResult{
+        flex-wrap: nowrap;
+    }
+    .BattleResult .Result{
+        max-width: 30%;
+    }
+    .BattleResult .PCResult{
+        order: 1;
+    }
+    
+    .ResultMessage{
+        margin-top: 12%;
+    }
     .ChooseOptions{
         margin-top: 10vh;
         margin-bottom: 0;
     }
     .ChooseOptions .Icon{
-        min-width: 118px;
-        border-width: 15px;
+        min-width: 120px;
+        border-width: 16px;
     }
     .ChooseOptions .Icon:hover{
-        min-width: 130px;
+        
+        min-width: 125px;
         border-width: 20px;
     }
     
@@ -478,6 +516,9 @@ li{
 
         margin-bottom: 8vh;
         order: -1;
+    }
+    .ResultMessage{
+        margin-top: 26%;
     }
 
     

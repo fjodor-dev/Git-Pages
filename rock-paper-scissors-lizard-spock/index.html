@@ -10,79 +10,7 @@
   <script src="script/jquery-3.6.0.min.js"></script>
   <script src="script/script.js"></script>
   <script>
-$('document').ready(()=>{
-  
-
-  const rulesContainer = $('.RulesContainer')
-  const rulesPage = $('.RulesPage')
-  const battleResult = $('.BattleResult')
-  const chooseOptions = $('.ChooseOptions')
-  const resultPlayerShadow = $(".PlayerResult .ShadowResult")
-  const resultPCShadow = $(".PCResult .ShadowResult")
-  const resultPlayerCircle = $(".PlayerResult div .Circle")
-  const resultPCCircle = $(".PCResult div .Circle")
-  const scoreCounter = $("header .ScoreCounter h2")
-  let score = 0
-  let numOfOptions = 5
-  let idIconPlayer
-  let idIconPC
-
-
-
-  chooseOptions.children().children(".Circle.Icon").on('click', function () {
     
-    idIconPlayer = parseInt($(this).attr("id"))
-    idIconPC = Math.floor((Math.random() * numOfOptions) + 1)
-    
-    classForPCResult = ""
-    switch(idIconPC){
-      case 1: classForPCResult = "Siccors"; break
-      case 2: classForPCResult = "Paper"; break
-      case 3: classForPCResult = "Rock"; break
-      case 4: classForPCResult = "Lizard"; break
-      case 5: classForPCResult = "Spock"; break
-    }
-    resultPlayerCircle.addClass("Icon " + $(this).attr("class").split(' ').pop() + "")
-    resultPCCircle.addClass("Icon " + classForPCResult)
- 
-    if (idIconPlayer == idIconPC) {
-      console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ", Tie")
-    }
-    else if (
-      idIconPlayer+1 == idIconPC||
-      idIconPlayer == numOfOptions && idIconPC == 1||
-      idIconPlayer>= Math.ceil(numOfOptions/2) && idIconPlayer-2 == idIconPC||
-      idIconPlayer < Math.ceil(numOfOptions/2) && idIconPlayer+3 == idIconPC
-    ){
-      console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ",you win pc lose")
-      resultPlayerShadow.addClass("ShadowPulse")
-      scoreCounter.text("" + ++score)
-
-    }
-    else{
-      console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ",pc win you lose")
-      resultPCShadow.addClass("ShadowPulse")
-      scoreCounter.text("" + --score)
-    }
-
-    chooseOptions.hide()
-    battleResult.css("display","flex")
-
-  })
-
-  $('.RulesButton').on('click', function () {
-    rulesContainer.show().animate({opacity: '1'},500)
-    rulesPage.animate({ top: "-=1000",}, 200);
-  })
-
-  rulesPage.children('span').on('click', function () { 
-    rulesPage.animate({ top: "+=1000px",}, 200);
-    rulesContainer.animate({opacity: '0.0'},500,()=>{rulesContainer.hide()})
-  })
-
-})
-
-
   </script>
 </head>
 <body>
@@ -140,6 +68,13 @@ $('document').ready(()=>{
         </div>
         <p>the house picked</p>
       </div>
+      <div class="ResultMessage">
+        <h1>you win</h1>
+        <div class="PlayAgainButton">
+          play again
+        </div>
+      </div>
+      
     </section>
 
     <div class="RulesButton RoundedBorder">
