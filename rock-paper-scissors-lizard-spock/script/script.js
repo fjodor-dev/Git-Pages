@@ -1,3 +1,9 @@
+
+if(sessionStorage.getItem("score") === null){
+  sessionStorage.setItem("score", "0")
+  console.log("new var")
+}
+
 $('document').ready(()=>{
   
 
@@ -5,6 +11,8 @@ $('document').ready(()=>{
     const rulesPage = $('.RulesPage')
     const battleResult = $('.BattleResult')
     const chooseOptions = $('.ChooseOptions')
+    const icon = chooseOptions.children().children(".Circle.Icon")
+    let iconWidth = icon.width()
     const resultPlayerShadow = $(".PlayerResult .ShadowResult")
     const resultPCShadow = $(".PCResult .ShadowResult")
     const resultPlayerCircle = $(".PlayerResult div .Circle")
@@ -14,14 +22,15 @@ $('document').ready(()=>{
     const resultMessageText = resultMessage.children("h1")
     const playAgainButton = resultMessage.children(".PlayAgainButton")
   
-    let score = 0
+    scoreCounter.text(sessionStorage.getItem("score"))
     let numOfOptions = 5
     let idIconPlayer
     let idIconPC
+
+    console.log(iconWidth)
+
   
-  
-  
-    chooseOptions.children().children(".Circle.Icon").on('click', function () {
+    icon.on('click', function () {
       
       resultPlayerShadow.removeClass("ShadowPulse")
       resultPCShadow.removeClass("ShadowPulse")
@@ -53,15 +62,23 @@ $('document').ready(()=>{
       ){
         console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ",you win pc lose")
         resultPlayerShadow.addClass("ShadowPulse")
-        scoreCounter.text("" + ++score)
+        
+        sessionStorage.setItem("score", ""+ (parseInt(sessionStorage.getItem("score"))+1))
+        scoreCounter.text(sessionStorage.getItem("score"))
+        
         resultMessageText.text("you win")
+
   
       }
       else{
         console.log("player: " + idIconPlayer + ", PC: " + idIconPC + ",pc win you lose")
         resultPCShadow.addClass("ShadowPulse")
-        scoreCounter.text("" + --score)
+
+        sessionStorage.setItem("score", ""+ (parseInt(sessionStorage.getItem("score"))-1))
+        scoreCounter.text(sessionStorage.getItem("score"))
+
         resultMessageText.text("you lose")
+
       }
   
       chooseOptions.hide()
@@ -70,7 +87,6 @@ $('document').ready(()=>{
     })
   
     playAgainButton.on('click', function () {
-      
       
       battleResult.hide()
       chooseOptions.show()
