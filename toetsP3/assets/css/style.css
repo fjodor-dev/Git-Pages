@@ -1,0 +1,420 @@
+/*========================
+  CSS Base
+========================*/
+*{
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-size: 14.67px;
+    color: #444444;
+    line-height: 1.75em;
+}
+
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #555555;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+h1, h2{
+    font-size: 25.67px;
+}
+
+h3{
+    font-size: 18.33px;
+}
+
+h4, h5, h6{
+    font-size: 14.67px;
+}
+
+a{
+    color: #444444;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li a{
+    line-height: 3em;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+/*========================
+  Header
+========================*/
+header,
+.navbar-dark{
+    background-color: rgb(17, 17, 17)!important;
+    line-height: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+    
+
+        #logo{
+            padding: 5px 20px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        #hamburger-button{
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            float: right;
+        }
+
+        #hamburger-button:hover{
+            color: white;
+        }
+
+        #main-menu {
+            display: none;
+            margin: 0;
+        }
+
+        #main-menu li {
+            margin: 5px 25px;
+            text-align: center;
+        }
+
+             
+
+    #banner{
+        position: relative;
+        background-image: url('../img/banner.jpg');
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        padding: 10vh 15%;
+    }
+
+    #banner:before{
+        transition: opacity 3s ease;
+        transition-delay: 1.25s;
+        background: #111111;
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.45;
+        z-index: 1;
+    }
+
+    #banner:after{
+        background: linear-gradient(135deg, #ce1b28 0%, #111111 74%);
+        content: ' ';
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.7;
+        z-index: 1;
+    }
+
+        #banner>*{
+            position: relative;
+            z-index: 3;
+        }
+
+        #banner h1{
+            color: white;
+        }
+
+        #banner p{
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0;
+        }
+
+
+
+/*========================
+  Main
+========================*/
+main{
+    position: relative;
+    text-align: center;
+    padding: 5vh 10%;
+}
+
+main:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url('../img/bg.jpg');
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    opacity: 0.05;
+}
+
+    .cards{
+        background-color: white;
+        position: relative;
+        box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.025);
+        border-radius: 4%;
+        padding: 1em;
+        margin-bottom: 2em;
+        
+    }
+
+        .icons{
+            width: 85px;
+            height: auto;
+            margin-bottom: 0.75em;
+        }
+
+        blockquote {
+            border-left: solid 0.5em;
+            border-left-color: rgba(0, 0, 0, 0.25);
+            font-style: italic;
+            margin: 0 0 2rem 0;
+            padding: 0.5em 0 0.5em 0.6em;
+            quotes: none;
+            text-align: left;
+        }
+
+        figure{
+            margin: 0;
+            text-align: left;
+        }
+
+            .avatars{
+                width: 55px;
+                height: 55px;
+                border-radius: 100%;
+                vertical-align: middle;
+            }
+
+            figcaption{
+                margin-left: 2em;
+                font-size: 0.75em;
+                display: inline;
+            }
+
+                .names{
+                    color: #ce1b28;
+                }
+
+    aside{
+       
+        width: 125%;
+        margin-left: -12.5%;
+        box-sizing: border-box;
+
+        background-image: linear-gradient(rgba(206, 27, 40, 0.25), rgba(206, 27, 40, 0.25)), url('../img/cta01.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        opacity: 1;
+        padding: 5vh 10%;
+        margin-bottom: 2em;
+    }
+
+        aside h2,
+        aside p{
+            color: white;
+        }
+
+
+/*========================
+  Footer
+========================*/
+footer{
+    background-color: rgb(17, 17, 17);
+    padding: 2em 10%;
+}
+
+    footer h4{
+        color: white;
+        margin: 1.5em 0;
+    }
+
+    footer p,
+    footer a{
+        color: rgba(255, 255, 255, 0.5);
+    }
+        footer ul#social-icons li{
+            border-bottom: none;
+        }
+
+        footer ul li a img{
+            vertical-align: middle;
+            width: 3em;
+            height: 3em;
+            border-radius: 10%;
+        }
+
+    #disclaimer{
+        border-top: solid 1px;
+        border-top-color: rgba(255, 255, 255, 0.5);
+        padding-top: 3em;
+        font-size: 0.75em;
+        text-align: center;
+    }
+
+/*========================
+  JOUW CUSTOM CSS HIERONDER !!
+========================*/
+
+/* tablet */
+@media screen and (min-width: 768px){
+
+   /*========================
+    Header
+    ========================*/
+    #hamburger-button{
+       display: none;
+    }
+
+    #main-menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+        float: right;
+        width: 70%;
+    }
+    #main-menu li {
+        margin: 0;
+        text-align: center;
+    }
+
+    /*========================
+    Main
+    ========================*/
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    main h2{
+        width: 100%;
+        text-align: center;
+    }
+    main .cards{ 
+        max-width: 48%; 
+    }
+
+    main #cta{
+        min-width: 125%;
+        align-self: center;
+        padding: 12.5%;
+    }
+
+    /*========================
+    Footer
+    ========================*/
+    footer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    footer .links{
+        width: 50%;
+    }
+
+    #disclaimer{
+        width: 100%;
+    }
+
+}
+  
+/*Desktop*/
+@media screen and (min-width: 1200px){
+
+    /*========================
+    Header
+    ========================*/
+
+    header{
+        
+        font-size: larger;
+        
+    }
+
+    #navbar{
+       height: 80px;
+       padding-top: 15px;
+    }
+
+
+    #main-menu {
+        
+        width: 50%;
+    }
+
+    /*========================
+    Main
+    ========================*/
+    main {
+        
+        width: 100%;
+    }
+    
+    main #extraText{
+        width: 100%;
+    }
+    main .cards{ 
+        max-width: 32%; 
+    }
+
+    main #cta{
+        display: flex;
+        max-height: 300px;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    main #cta *{
+        width: 100%;
+    }
+
+    /*========================
+    Footer
+    ========================*/
+    footer .footerText{
+        width: 35%;
+        padding-right: 5%;
+    }
+
+    footer .links{
+        width: 25%;
+    }
+
+
+
+}
