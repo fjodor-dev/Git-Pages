@@ -352,6 +352,8 @@ $('document').ready(()=>{
               case "moons": {
     
                 setFact(data[key].length,key)
+
+                allMoons.html("")
     
                 for (let index = 0; index < data.moons.length; index++) {
                   const id = data.moons[index].rel.split('/');
